@@ -1,0 +1,6 @@
+id,type,source,destination,status,host,query,expiresAt,startsAt,caseSensitive,enabled,note,utm_source,utm_medium,utm_campaign
+about,exact,/about-us,/about,301,,preserve,,,,true,Old about page,,,
+legacy-post,exact,/index.php?p=42,/blog/hello-world,301,,preserve,,,,true,WordPress ?p= permalink,,,
+blog-move,prefix,/news/*,/blog/$1,301,,preserve,,,,true,Section rename,,,
+docs-version,prefix,/docs/:version/*,https://docs.example.com/:version/$2,308,,preserve,,,,true,Docs moved to subdomain,,,
+spring-sale,exact,/sale,https://shop.example.com/collections/spring,302,,strip,2027-04-01T00:00:00Z,2027-03-01T00:00:00Z,,true,Seasonal campaign,website,banner,spring-sale

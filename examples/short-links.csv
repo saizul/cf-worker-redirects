@@ -1,0 +1,5 @@
+source,destination,status,utm_source,utm_medium,utm_campaign
+/gh,https://github.com/saizul,302,,,
+/yt,https://www.youtube.com/,302,shortlink,social,profile
+/qr/menu,https://example.com/menu,302,qr,print,table-card
+/cv,https://example.com/files/cv.pdf,302,,,

@@ -1,0 +1,62 @@
+{
+  "name": "cf-worker-redirects",
+  "version": "0.1.0",
+  "description": "Bulk redirects and short links on Cloudflare Workers + KV (or D1): CSV/JSON import with loop and conflict validation, wildcard and safe regex rules, UTM tagging, expiry, click counting and a token-protected admin API with CLI.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Saizul Amin",
+  "homepage": "https://github.com/saizul/cf-worker-redirects#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saizul/cf-worker-redirects.git"
+  },
+  "bugs": {
+    "url": "https://github.com/saizul/cf-worker-redirects/issues"
+  },
+  "keywords": [
+    "cloudflare-workers",
+    "redirects",
+    "short-links",
+    "url-shortener",
+    "workers-kv",
+    "d1",
+    "analytics-engine",
+    "seo"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "default": "./dist/src/index.js"
+    }
+  },
+  "bin": {
+    "cf-worker-redirects": "dist/src/bin.js"
+  },
+  "files": [
+    "dist/src",
+    "migrations",
+    "wrangler.jsonc",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "pretest": "npm run build",
+    "test": "node --test dist/test/*.test.js",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0",
+    "wrangler": "^4.40.0"
+  }
+}

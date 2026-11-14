@@ -1,0 +1,35 @@
+{
+  "rules": [
+    {
+      "id": "shop-subtree",
+      "type": "prefix",
+      "source": "/store",
+      "destination": "https://shop.example.com/",
+      "status": 301
+    },
+    {
+      "id": "product-ids",
+      "type": "regex",
+      "source": "^/p/(?<id>\\d{1,8})$",
+      "destination": "/products/$<id>",
+      "status": 301,
+      "note": "Needs ENABLE_REGEX=true on the Worker and --allow-regex in the CLI"
+    },
+    {
+      "id": "launch",
+      "type": "exact",
+      "source": "/launch",
+      "destination": "https://example.com/launch",
+      "status": 307,
+      "startsAt": "2027-01-10T09:00:00Z",
+      "utm": { "source": "shortlink", "campaign": "launch" }
+    },
+    {
+      "id": "only-on-go",
+      "source": "/x",
+      "destination": "https://x.com/",
+      "status": 302,
+      "host": "go.example.com"
+    }
+  ]
+}

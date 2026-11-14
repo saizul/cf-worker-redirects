@@ -1,0 +1,48 @@
+// Wrangler configuration. See https://developers.cloudflare.com/workers/wrangler/configuration/
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "cf-worker-redirects",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-11-01",
+
+  // Serve the redirects on your own hostname. Uncomment and edit one of these:
+  // "routes": [{ "pattern": "go.example.com", "custom_domain": true }],
+  // "routes": [{ "pattern": "example.com/old/*", "zone_name": "example.com" }],
+
+  // Rule storage. Create the namespace with:
+  //   npx wrangler kv namespace create REDIRECTS
+  // and paste the returned id below.
+  "kv_namespaces": [
+    { "binding": "REDIRECTS", "id": "REPLACE_WITH_KV_NAMESPACE_ID" }
+  ],
+
+  // Optional: store the rule set in D1 instead of KV (set STORAGE to "d1").
+  //   npx wrangler d1 create cf-worker-redirects
+  //   npx wrangler d1 migrations apply cf-worker-redirects --remote
+  // "d1_databases": [
+  //   { "binding": "DB", "database_name": "cf-worker-redirects", "database_id": "REPLACE_WITH_D1_ID", "migrations_dir": "migrations" }
+  // ],
+
+  // Optional: click analytics with Workers Analytics Engine (set COUNTER to "analytics").
+  // The dataset is created automatically on first write.
+  // "analytics_engine_datasets": [
+  //   { "binding": "CLICKS", "dataset": "redirect_clicks" }
+  // ],
+
+  "vars": {
+    "ADMIN_PATH": "/__redirects",
+    "STORAGE": "kv",
+    "COUNTER": "none",
+    "ENABLE_REGEX": "false",
+    "REGEX_BUDGET_MS": "5",
+    "FALLBACK": "404",
+    "CACHE_TTL": "60",
+    "INTERNAL_HOSTS": "",
+    "MAX_RULES": "50000"
+  },
+
+  // ADMIN_TOKEN is a secret, never a var:
+  //   openssl rand -hex 32 | npx wrangler secret put ADMIN_TOKEN
+
+  "observability": { "enabled": true, "head_sampling_rate": 0.1 }
+}

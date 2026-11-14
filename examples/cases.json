@@ -1,0 +1,8 @@
+[
+  { "url": "https://example.com/about-us", "status": 301, "location": "/about" },
+  { "url": "https://example.com/about-us?ref=nav", "status": 301, "location": "/about?ref=nav" },
+  { "url": "https://example.com/index.php?p=42", "status": 301, "location": "/blog/hello-world" },
+  { "url": "https://example.com/news/2025/launch", "status": 301, "location": "/blog/2025/launch" },
+  { "url": "https://example.com/docs/v2/install", "status": 308, "location": "https://docs.example.com/v2/install" },
+  { "url": "https://example.com/not-a-rule", "location": null }
+]
